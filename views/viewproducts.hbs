@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./mystyle.css">
+    <title>Home Page</title>
+    <style>
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid #e7e7e7;
+            background-color: #f3f3f3;
+        }
+
+        li{
+            float: left;
+        }
+
+        li a{
+            display: block;
+            color: #666;
+            text-align: center;
+            padding: 14px 40px;
+            text-decoration: none;   
+        }
+
+        li a:hover:not(.active){
+            background-color: #ddd;
+        }
+
+        li a.active{
+            color: white;
+            background-color: #000000;
+        }
+        body{
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">All Products</h1>
+    <h1 style="text-align: center;">This web is printing the product on the screen</h1>
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/Control_Center">Controll Center</a></li>
+        <li><a href="/about">About</a></li>
+        <li>
+            <form action="/search" method="POST"></form>
+            <input type="text" name="txtSearch">
+            <input type="submit" name="Search">
+        </li>
+    </ul>
+    <div class="container" style="margin-left: 300px">
+        <div class="main">
+            {{#each model}}
+            <a href="#">
+                <div class="box">
+                    <div class="center">
+                        <img class="boximg" width="150" height="150"  src="{{img}}" alt="">
+                    </div>
+                    <div>
+                        <h3>{{productName}}</h3>
+                    </div>
+                    <div class="price">
+                        <strong>{{price}}USD</strong>
+                    </div>
+                    <figure class="outfit"> 
+                        <h3>About:</h3>{{outfit}}
+                    </figure>
+                </div>
+            </a>
+            {{/each}}
+        </div>
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>
